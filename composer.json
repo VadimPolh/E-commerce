@@ -6,7 +6,10 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "barryvdh/laravel-ide-helper": "^2.1",
+        "laravelcollective/html": "^5.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -40,7 +43,8 @@
             "php artisan optimize"
         ],
         "pre-update-cmd": [
-            "php artisan clear-compiled"
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate"
         ],
         "post-update-cmd": [
             "php artisan optimize"

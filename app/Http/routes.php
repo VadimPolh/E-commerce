@@ -26,6 +26,9 @@ Route::get('/', function () {
 |
 */
 
+Route::resource("about","AboutController",['only' => ['index']]);
+Route::resource("contact","ContactController",['only' => ['create','store']]);
+
 Route::group(['middleware' => ['web']], function () {
     //
 });
