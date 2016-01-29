@@ -26,9 +26,26 @@ Route::get('/', function () {
 |
 */
 
+
+//About page
 Route::resource("about","AboutController",['only' => ['index']]);
+
+//Contact page and form
 Route::resource("contact","ContactController",['only' => ['create','store']]);
+
+Route::get('contact',
+    ['as' => 'contact',
+        'uses' => 'ContactController@create']);
+Route::post('contact',
+    ['as' => 'contact_store',
+        'uses' => 'ContactController@store']);
+
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
 });
