@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 /*
@@ -31,14 +31,18 @@ Route::get('/', function () {
 Route::resource("about","AboutController",['only' => ['index']]);
 
 //Contact page and form
-Route::resource("contact","ContactController",['only' => ['create','store']]);
-
 Route::get('contact',
     ['as' => 'contact',
         'uses' => 'ContactController@create']);
 Route::post('contact',
     ['as' => 'contact_store',
         'uses' => 'ContactController@store']);
+
+//discounts
+Route::resource("discounts","DiscountsController",["only" => ["index"]]);
+
+
+
 
 
 Route::group(['middleware' => ['web']], function () {

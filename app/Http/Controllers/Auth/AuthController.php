@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectPath = '/';
+    public $redirectPath = '/discounts';
 
 
     public function __construct()
